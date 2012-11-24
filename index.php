@@ -46,7 +46,7 @@ require 'action.php';
 
 		<div class="container">
 			<ul class="post-list">
-				<li>
+				<!-- <li>
 					<div class="row">
 						<div class="span1">
 							<img src="<?php echo WEB_ROOT; ?>/assert/img/qq.png" alt="">
@@ -57,9 +57,9 @@ require 'action.php';
 							<p class="muted pull-right" >2012-11-02 20:00</p>
 						</div>
 					</div>
-				</li>
+				</li> -->
 
-				<?php  $list = get_msg_list();
+				<?php  $list = get_page_list($_GET["p"]);
 					$i = 0;
 					foreach ($list as $vo) { 
 						++$i;
@@ -80,19 +80,47 @@ require 'action.php';
 
 			</ul><!--/ post-list -->
 
-			<div class="pagination pagination-right">
+			<!-- <div class="pagination pagination-right">
 				<ul>
-					<li><a href="#">Prev</a></li>
-					<li><a href="#">1</a></li>
-					<li><a href="#">2</a></li>
-					<li><a href="#">3</a></li>
-					<li><a href="#">4</a></li>
-					<li><a href="#">Next</a></li>
+					<li><a href="#" class="page-prev">Prev</a></li>
+					<li><a href="#" class="page-num">1</a></li>
+					<li><a href="#" class="page-num">2</a></li>
+					<li><a href="#" class="page-num">3</a></li>
+					<li><a href="#" class="page-num">4</a></li>
+					<li><a href="#" class="page-num">5</a></li>
+					<li><a href="#" class="page-next">Next</a></li>
 				</ul>
-			</div>
+			</div> -->
+			<div id="page"></div>
 		</div>
 
 		<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/assert/js/jquery-1.8.0.js"></script>
 		<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/assert/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="<?php echo WEB_ROOT; ?>/assert/js/jquery.pagination.js"></script>
+		<script type="text/javascript">
+
+			jQuery(function ($) {
+
+				$("#page").pagination({
+					class: "pagination-right", 
+					// num: 3, 
+					page: '<?php echo is_null($_GET["p"]) ? 1 : $_GET["p"]; ?>', 
+					count: <?php echo get_page_count(); ?>, 
+					callback: function (current_page, new_page) {
+						if(current_page === new_page) return;
+						window.location = "index.php?p=" + new_page;
+					}
+				});
+
+				/*$("#page").pagination({
+					class: "pagination-right", 
+					refresh: false, 
+					num: 5, 
+					count: 20
+				});*/
+
+			});
+
+		</script>
 	</body>
 </html>
