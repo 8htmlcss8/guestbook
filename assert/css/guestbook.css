@@ -1,0 +1,45 @@
+/**
+ *  
+ */
+/**
+ * 
+ */body {
+  font-family: "Microsoft Yahei", SimSun, Tahoma, Helvetica, Arial, sans-serif;
+}
+.form-sign {
+  max-width: 300px;
+  background: #fff;
+  margin: 0 auto 20px;
+  padding: 19px 29px 29px;
+  border: 1px solid #e5e5e5;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  -moz-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+.form-btn-wrap {
+  margin: 0 auto;
+  width: 150px;
+}
+.form-regist {
+  text-decoration: underline;
+  margin-left: 20px;
+}
+.post-list {
+  margin: 0px;
+  padding: 0px;
+}
+.post-list > li {
+  margin: 10px 0px 0px;
+  padding: 0px;
+  list-style: none;
+  border-bottom: 1px solid #ccc;
+}
+.form-login {
+  max-width: 300px;
+  background: #fff;
+  padding: 19px;
+  margin: 0px;
+}
